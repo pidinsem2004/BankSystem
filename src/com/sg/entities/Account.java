@@ -2,7 +2,6 @@ package com.sg.entities;
 
 import com.sg.dao.Dataset;
 import com.sg.utilities.Operation;
-
 import java.util.Date;
 
 public class Account {
@@ -68,7 +67,7 @@ public class Account {
 
     private void deposit(Long amount){
         balance += amount;
-        //create a statement object to reflect the new operation en update history
+        //create a statement object to reflect the new operation and update history
         Statement st = new Statement(this, new Date() , amount, balance, Operation.DEPOSIT);
         Dataset.getHistoriesList().add(st);
         System.out.println("Versement effectué avec Succès");
@@ -78,20 +77,13 @@ public class Account {
         if (balance < amount)
               throw  new Exception("Solde Insuffisant") ;
         balance -= amount;
-        //create a statement object to reflect the new operation en update history
+        //create a statement object to reflect the new operation and update history
         Statement st = new Statement(this, new Date() , amount, balance , Operation.WITHDRAWAL );
         Dataset.getHistoriesList().add(st);
-        System.out.println("Retrai effectué avec Succès");
+        System.out.println("Retrait effectué avec Succès");
     }
 
-    private void printStatement(){
-        //System.out.println("Historique du Compte "+ this.getNumber());
-        for (Statement st  : Dataset.getHistoriesList()) {
-            System.out.print(st.toString());
-        }
-    }
-
-    private void printAccountStatement(){
+   private void printAccountStatement(){
         System.out.println("Historique du Compte "+ this.getNumber());
         Dataset.getHistoriesList().stream().filter(st-> st.getAccount().getNumber().equals(this.getNumber()))
                 .forEach(System.out::println);

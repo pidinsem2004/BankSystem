@@ -14,8 +14,7 @@ import java.util.Map;
  * les tests.
  * elle dispose d'un trois collections qui permettent de définir les données
  * AccountList : définit la collection des comptes
- * Statement   :   la situation du compte
- * orderList   :
+ * historyList   :  historique du compte
  */
 public class Dataset {
 
@@ -23,7 +22,6 @@ public class Dataset {
     private final static Map <String, Account> accountList;
 
     //Collection qui gère l'historique des comptes
-
     private final static List <Statement> historyList;
 
     //bloc d'initialisation
@@ -43,14 +41,13 @@ public class Dataset {
         return accountList;
     }
 
-    //collection des des opérations
+    //collection historique
     public static List <Statement> getHistoriesList() {
         return historyList;
     }
 
     //génération des data
     private static void buildData() {
-
 
         // création  des Comptes
         Account accountA = new Account("01", "User1", 500L);
