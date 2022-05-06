@@ -54,7 +54,7 @@ public class Account {
     public void processOperation(Operation op, Long amount) {
 
         if (op == Operation.DEPOSIT) {
-            deposit(amount);
+             deposit(amount);
         } else if (op == Operation.WITHDRAWAL) {
             try {
                 withdrawal(amount);

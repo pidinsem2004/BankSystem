@@ -84,8 +84,6 @@ public class Main {
 
                 }
             } else if (choice.equals("4")) {
-
-            } else if (choice.equals("5")) {
                 System.exit(0);
             }
             Utilities.menu();

@@ -19,63 +19,47 @@ import java.util.Map;
  */
 public class Dataset {
 
-    /**
-     * Collection qui gère la list des comptes
-     */
-    private final static Map<String, Account> accountsList = new HashMap <>();
+    //Collection qui gère la list des comptes
+    private final static Map <String, Account> accountList;
 
-    /**
-     * Collection qui gère l'historique des comptes
-     */
-    private final static List<Statement> historiesList = new ArrayList <>();
+    //Collection qui gère l'historique des comptes
 
-     /**
-     * l'appel du contructeur sans paramètre de la classe Dataset
-     * promotionnnelles
-     */
+    private final static List <Statement> historyList;
+
+    //bloc d'initialisation
+    static {
+        accountList = new HashMap <>();
+        historyList = new ArrayList <>();
+    }
+
+
+    //l'appel du contructeur sans paramètre
     public Dataset() {
         buildData();
     }
 
-    /**
-     * Renvoie la liste des Comptes
-     *
-     * @return productList
-     */
-    public static Map<String, Account> getAccounts() {
-        return accountsList;
-    }
-
+    //Collection des comptes
     public static Map <String, Account> getAccountsList() {
-        return accountsList;
+        return accountList;
     }
 
+    //collection des des opérations
     public static List <Statement> getHistoriesList() {
-        return historiesList;
+        return historyList;
     }
 
-    /**
-     * Cette méthode va permmettre de simuler une base de données
-     * à partir des collections. elles contruits et charge les collections
-     */
-
+    //génération des data
     private static void buildData() {
 
 
-        // Initialisation des Comptes
+        // création  des Comptes
+        Account accountA = new Account("01", "User1", 500L);
+        Account accountB = new Account("02", "User2", 200L);
+        Account accountC = new Account("03", "User3", 0L);
 
-        Account accountA = new Account("01", "JP NSEM16" , 50000L);
-        Account accountB = new Account("02", "JP NSEM17" , 20000L);
-        Account accountC= new Account("03", "JP NSEM18" , 0L);
-
-        accountsList.put(accountA.getNumber(), accountA);
-        accountsList.put(accountB.getNumber(), accountB);
-        accountsList.put(accountC.getNumber(), accountC);
-
-
-
-
+        //initialisation des la liste des comptes
+        accountList.put(accountA.getNumber(), accountA);
+        accountList.put(accountB.getNumber(), accountB);
+        accountList.put(accountC.getNumber(), accountC);
     }
-
-
-    }
+}

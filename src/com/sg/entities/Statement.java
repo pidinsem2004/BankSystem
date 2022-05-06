@@ -68,10 +68,10 @@ public class Statement {
     public String toString() {
         return "Statement{" +
                 "Operation type=" + op +
-                ", account Number=" + account.getCustomerName() +
+                ", account Number=" + account.getNumber() +
                 ", Date=" + stDate +
                 ", Amount=" + stAmount +
-                ", Balance=" + account.getBalance() +
+                ", Balance=" + balance +
                 '}';
     }
 }
